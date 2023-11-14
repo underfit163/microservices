@@ -1,0 +1,13 @@
+server:
+  port: 8080
+microservice:
+  name: User Service
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5433/microservices?currentSchema=user-schema
+    username: user
+    password: 123456
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka
