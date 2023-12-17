@@ -23,7 +23,9 @@ public class Company {
     @Column(name = "description")
     private String description;
 
+    @Column(name = "enabled")
+    private Boolean enabled;
+
     @Column(name = "user_id")
     private Long userId;
-
 }

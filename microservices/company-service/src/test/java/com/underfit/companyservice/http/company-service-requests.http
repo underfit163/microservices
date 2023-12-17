@@ -11,9 +11,10 @@ Content-Type: application/json
 
 {
   "name": "Company 2",
-  "msrn": 222221,
+  "msrn": 222225,
   "description": "Company 2 description",
-  "userId": 2
+  "enabled": true,
+  "userId": 1
 }
 
 ###Проверка существования компании по ее идентификатору. Параметры: 1. id
@@ -21,3 +22,6 @@ GET http://localhost:8082/api/v1/company/exist-company/1
 
 ###Получение информации о компании. Параметры: 1. id
 GET http://localhost:8082/api/v1/company/get-company/2
+
+###Удаление компании. Параметры: 1. id
+DELETE http://localhost:8082/api/v1/company/delete-company/3

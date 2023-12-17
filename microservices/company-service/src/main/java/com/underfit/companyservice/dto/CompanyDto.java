@@ -22,6 +22,7 @@ public class CompanyDto implements Serializable {
     private Long msrn;
     private String description;
     private Long userId;
+    private Boolean enabled;
     private String userName;
 
     public Company toEntity() {

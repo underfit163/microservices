@@ -2,7 +2,27 @@
 <module type="JAVA_MODULE" version="4">
   <component name="NewModuleRootManager" inherit-compiler-output="true">
     <exclude-output />
-    <content url="file://$MODULE_DIR$" />
+    <content url="file://$MODULE_DIR$">
+      <excludeFolder url="file://$MODULE_DIR$/.idea/dataSources" />
+      <excludeFolder url="file://$MODULE_DIR$/.idea/httpRequests" />
+      <excludeFolder url="file://$MODULE_DIR$/microservices/dockerfiles/db_microservices_data/pg_commit_ts" />
+      <excludeFolder url="file://$MODULE_DIR$/microservices/dockerfiles/db_microservices_data/pg_dynshmem" />
+      <excludeFolder url="file://$MODULE_DIR$/microservices/dockerfiles/db_microservices_data/pg_logical" />
+      <excludeFolder url="file://$MODULE_DIR$/microservices/dockerfiles/db_microservices_data/pg_multixact" />
+      <excludeFolder url="file://$MODULE_DIR$/microservices/dockerfiles/db_microservices_data/pg_notify" />
+      <excludeFolder url="file://$MODULE_DIR$/microservices/dockerfiles/db_microservices_data/pg_replslot" />
+      <excludeFolder url="file://$MODULE_DIR$/microservices/dockerfiles/db_microservices_data/pg_serial" />
+      <excludeFolder url="file://$MODULE_DIR$/microservices/dockerfiles/db_microservices_data/pg_snapshots" />
+      <excludeFolder url="file://$MODULE_DIR$/microservices/dockerfiles/db_microservices_data/pg_stat" />
+      <excludeFolder url="file://$MODULE_DIR$/microservices/dockerfiles/db_microservices_data/pg_stat_tmp" />
+      <excludeFolder url="file://$MODULE_DIR$/microservices/dockerfiles/db_microservices_data/pg_tblspc" />
+      <excludeFolder url="file://$MODULE_DIR$/microservices/dockerfiles/db_microservices_data/pg_twophase" />
+      <excludeFolder url="file://$MODULE_DIR$/microservices/dockerfiles/db_microservices_data/pg_wal/archive_status" />
+      <excludeFolder url="file://$MODULE_DIR$/microservices/dockerfiles/db_microservices_data/pg_xact" />
+      <excludeFolder url="file://$MODULE_DIR$/microservices/dockerfiles/kafka_data/config" />
+      <excludeFolder url="file://$MODULE_DIR$/microservices/dockerfiles/db_microservices_data" />
+      <excludeFolder url="file://$MODULE_DIR$/microservices/dockerfiles/kafka_data" />
+    </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
   </component>

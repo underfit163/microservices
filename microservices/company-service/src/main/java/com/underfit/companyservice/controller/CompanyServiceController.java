@@ -9,6 +9,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+
 @CrossOrigin(origins = "*", maxAge = 3600)
 @RestController
 @RequiredArgsConstructor
@@ -43,6 +44,12 @@ public class CompanyServiceController {
     @GetMapping("/get-company/{id}")
     public ResponseEntity<?> getCompany(@PathVariable Long id) {
         return ResponseEntity.ok(companyService.getCompanyById(id));
+    }
+
+    @DeleteMapping("/delete-company/{id}")
+    public ResponseEntity<?> deleteCompany(@PathVariable Long id) {
+        companyService.deleteCompany(id);
+        return ResponseEntity.ok("delete company: " + id);
     }
 
     @ExceptionHandler({EntityNotFoundException.class, FeignException.class})

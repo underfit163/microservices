@@ -1,5 +1,5 @@
 server:
-  port: 8888
+  port: ${PROPERTIES_SERVER_PORT}
 spring:
   application:
     name: configuration-server
@@ -10,3 +10,5 @@ spring:
       server:
         native:
           search-locations: classpath:/config
+  kafka:
+    bootstrap-servers: localhost:9092

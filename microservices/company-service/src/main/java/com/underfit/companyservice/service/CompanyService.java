@@ -22,11 +22,13 @@ import java.util.stream.Collectors;
 public class CompanyService {
     private final CompanyRepository companyRepository;
     private final UserServiceFeignClient userServiceFeignClient;
+    private final CompanyKafkaProducerServiceImpl companyKafkaProducerService;
 
     public List<CompanyDto> getAllCompanies() {
         return companyRepository
                 .findAll()
                 .stream()
+                .filter(Company::getEnabled)
                 .map(CompanyDto::toDto)
                 .peek(companyDto -> {
                     if (companyDto.getUserId() != null)
@@ -52,16 +54,36 @@ public class CompanyService {
     }
 
     public Boolean existCompanyById(Long id) {
-        return companyRepository.existsById(id);
+        Company company = companyRepository.findById(id).orElseThrow(
+                () -> new EntityNotFoundException("Компании с идентификатором %s не существует"
+                        .formatted(id)));
+        if (Boolean.FALSE.equals(company.getEnabled())) {
+            throw new EntityNotFoundException(
+                    "Компания с идентификатором %s деактивирована".formatted(id));
+        }
+        return true;
     }
 
     public ResponseCompanyDto getCompanyById(Long id) {
         Company company = companyRepository.findById(id).orElseThrow(
                 () -> new EntityNotFoundException("Компании с идентификатором %s не существует"
                         .formatted(id)));
+        if (Boolean.FALSE.equals(company.getEnabled())) {
+            throw new EntityNotFoundException(
+                    "Компания с идентификатором %s деактивирована".formatted(id));
+        }
         ResponseCompanyDto responseCompanyDto = new ResponseCompanyDto();
         responseCompanyDto.setCompanyId(company.getId());
         responseCompanyDto.setCompanyName(company.getName());
         return responseCompanyDto;
+    }
+    @Transactional
+    public void deleteCompany(Long id) {
+        if(existCompanyById(id)) {
+          Company company = companyRepository.findById(id).get();
+          company.setEnabled(false);
+          companyRepository.save(company);
+          companyKafkaProducerService.send("delete" + id, String.valueOf(id));
+        }
     }
 }

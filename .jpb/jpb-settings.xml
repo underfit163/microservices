@@ -2,9 +2,9 @@
 <project version="4">
   <component name="PersistenceUnitSettings">
     <persistence-units>
-      <persistence-unit name="Default">
+      <persistence-unit moduleName="company-service" name="Default">
         <packages>
-          <package value="com.undrfit.configcloudserver" />
+          <package value="com.underfit.companyservice" />
         </packages>
       </persistence-unit>
     </persistence-units>

@@ -15,7 +15,7 @@ Content-Type: application/json
   "login": "22222",
   "password": "222222",
   "email": "user2@gmail.com",
-  "companyId": 1
+  "companyId": 5
 }
 
 ###Активация/деактивация пользователя. Параметры: 1. id; 2. enabled
